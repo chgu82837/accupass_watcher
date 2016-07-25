@@ -2,7 +2,7 @@
   "accupass": {
     "event_id": "",
     "ticket_name_search": "",
-    "ring_script": "./ring.sh",
+    "ring_script": "./true.sh",
     "interval": 1800,
     "url": ""
   },
