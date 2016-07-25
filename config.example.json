@@ -1,0 +1,17 @@
+{
+  "accupass": {
+    "event_id": "",
+    "ticket_name_search": "",
+    "ring_script": "./ring.sh",
+    "interval": 1800,
+    "url": ""
+  },
+  "mailgun": {
+    "apiKey": "key-XXXXXXXXXXXXXXXXXXXXXXX",
+    "domain": "mydomain.mailgun.org"
+  },
+  "mail": {
+    "from": "Excited User <me@samples.mailgun.org>",
+    "to": "serobnic@mail.ru"
+  }
+}
