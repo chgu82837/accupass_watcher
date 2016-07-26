@@ -12,6 +12,6 @@
   },
   "mail": {
     "from": "Excited User <me@samples.mailgun.org>",
-    "to": "serobnic@mail.ru"
+    "to": ["serobnic@mail.ru"]
   }
 }

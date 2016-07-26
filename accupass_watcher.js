@@ -20,7 +20,7 @@ function go(){
       JSON.parse(body).eventTicketGroups[0].eventTickets.map((ticket) => {
         if (ticket.name.search(ticket_name_search) != -1){
           if (ticket.ticketStatusStr.search('已') == -1) {
-            var bang_msg = `!! >> ${ticket.name}'s status is ${ticket.ticketStatusStr}!`;
+            var bang_msg = `!!! ${(new Date()).toString()} >> ${ticket.name}'s status is ${ticket.ticketStatusStr}!`;
             console.log(bang_msg);
             bang.push(bang_msg);
           }
@@ -29,15 +29,16 @@ function go(){
         }
       });
       if(bang.length){
-        var mail = {from: config.mail.from, to: config.mail.to};
-        mail.subject = `There are ${bang.length} tickets you need!`;
-        
-        bang.push(`<a href=${config.accupass.url}>${config.accupass.url}</a>`);
-        mail.html = bang.join('<br>') ;
-        console.log(">>> Sending...", mail);
-        mailgun.messages().send(mail, (error, body) => {
-          if(error) console.error(error);
-          console.log(body);
+        config.mail.to.forEach((to) => {
+          var mail = {from: config.mail.from, to: to};
+          mail.subject = `There are ${bang.length} tickets you need!`;
+          
+          mail.html = `${bang.join('<br>')}<br><a href=${config.accupass.url}>${config.accupass.url}</a>`;
+          console.log(">>> Sending...", mail);
+          mailgun.messages().send(mail, (error, body) => {
+            if(error) console.error(error);
+            console.log(body);
+          });
         });
         ring();
       }

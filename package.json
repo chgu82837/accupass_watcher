@@ -4,7 +4,8 @@
   "description": "",
   "main": "accupass_watcher.js",
   "scripts": {
-    "start": "node accupass_watcher.js"
+    "start": "node accupass_watcher.js",
+    "debug": "node debug accupass_watcher.js"
   },
   "author": "",
   "license": "ISC",
